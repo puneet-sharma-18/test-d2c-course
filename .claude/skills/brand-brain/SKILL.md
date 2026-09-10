@@ -1,6 +1,7 @@
 ---
 description: Build CLAUDE.md conversationally — walks through 8 brand topics, ingesting a file where you have one and interviewing you live where you don't.
 argument-hint: "[--draft-only] [--rebuild] [--debug]"
+name: brand-brain
 ---
 
 # /brand-brain

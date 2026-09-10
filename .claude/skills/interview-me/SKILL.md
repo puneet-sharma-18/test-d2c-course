@@ -1,5 +1,6 @@
 ---
-description: Run Module 1 of the D2C workshop. Interview the founder section by section to build CLAUDE.md from scratch.
+name: interview-me
+description: Build CLAUDE.md by interview. Walks the founder section by section and writes the brand profile from scratch, no files required. Use when the founder wants to set up their brand profile by answering questions rather than by sharing documents. Triggers on "interview me", "set up my brand profile", "build my CLAUDE.md", "start session 1".
 ---
 
 If the founder has completed pre-work and has a populated `brand-brain/`

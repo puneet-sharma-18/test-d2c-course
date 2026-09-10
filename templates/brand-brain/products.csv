@@ -1,0 +1,2 @@
+handle,title,sku,price,inventory_qty,product_type,vendor,tags,units_sold_l28,units_sold_l90,conversion_rate_l28,avg_rating,review_count
+example-hero-sku,Example Hero SKU,BRAND-001,499,220,Category,{Your Brand},"hero,entry",320,960,2.8%,4.6,88
