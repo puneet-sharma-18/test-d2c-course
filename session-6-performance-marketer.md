@@ -149,6 +149,8 @@ It does this when a customer's own phrasing crosses your claim wall. It flags ra
 
 ## Take-home
 
+Compare [`examples/the-paan-legacy/my-work/performance-marketer/`](examples/the-paan-legacy/my-work/performance-marketer/) against [`examples/little-lab/my-work/performance-marketer/`](examples/little-lab/my-work/performance-marketer/) to see how differently the same five angles land in a heritage food brand and a trust-led baby category.
+
 Read [`references/module-6-performance-marketer/ad-angle-templates.md`](references/module-6-performance-marketer/ad-angle-templates.md) and [`visual-prompt-templates.md`](references/module-6-performance-marketer/visual-prompt-templates.md). Then re-run in Power scope with all five angles and pick your next month's tests from the set.
 
 **Next:** [Session 7, Storefront and Marketplace](session-7-storefront-marketplace.md)

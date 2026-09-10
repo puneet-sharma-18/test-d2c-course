@@ -137,7 +137,7 @@ Say which line and why. Most of these skills carry a rule against upselling, so 
 
 ## What good looks like
 
-[`examples/the-paan-legacy/my-work/ops-manager/`](examples/the-paan-legacy/my-work/ops-manager/) and [`retention-manager/`](examples/the-paan-legacy/my-work/retention-manager/).
+[`examples/the-paan-legacy/my-work/ops-manager/`](examples/the-paan-legacy/my-work/ops-manager/) and [`retention-manager/`](examples/the-paan-legacy/my-work/retention-manager/). Little Lab's [`retention-manager/`](examples/little-lab/my-work/retention-manager/) is worth a look too: eleven files, and a different set of moments because a baby skincare buyer replenishes on a completely different clock.
 
 Read [`references/module-8-ops-retention/hooks-and-triggers.md`](references/module-8-ops-retention/hooks-and-triggers.md) for how to wire a trigger to something that actually watches for it.
 

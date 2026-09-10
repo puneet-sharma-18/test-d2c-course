@@ -91,6 +91,16 @@ The single highest value folder is `brand-brain/voice-dna/`. Five things you act
 
 ---
 
+## When you cannot picture the output
+
+Two brands are worked all the way through in [`examples/`](examples/README.md): **Little Lab**, baby skincare under CDSCO, sold mostly on marketplaces, and **The Paan Legacy**, gourmet paan under FSSAI, sold on its own site and quick commerce with a franchise and corporate side.
+
+Open whichever is closer to your category. Every session file links to the right folder inside them.
+
+Two things to read in either one. First, `brand-brain/` before `my-work/`, because what a teammate was given is more instructive than what it wrote. Second, the flags. Both examples are full of gaps, refusals and missing licence numbers, left in on purpose. That is what real output looks like.
+
+---
+
 ## Two scopes, every session
 
 Every skill and subagent asks you to pick scope before it starts.

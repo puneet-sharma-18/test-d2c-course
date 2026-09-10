@@ -141,7 +141,7 @@ Because nothing in your `CLAUDE.md` states the gluten status for that SKU. That 
 
 ## What good looks like
 
-[`examples/the-paan-legacy/my-work/storefront-specialist/`](examples/the-paan-legacy/my-work/storefront-specialist/) has a full before, gap and after set, plus CRO observations.
+[`examples/the-paan-legacy/my-work/storefront-specialist/`](examples/the-paan-legacy/my-work/storefront-specialist/) has a full before, gap and after set, plus CRO observations. [`examples/little-lab/my-work/marketplace-editor/`](examples/little-lab/my-work/marketplace-editor/) is the better read for a marketplace-heavy brand, since Little Lab sells mostly on Amazon and Flipkart.
 
 ---
 

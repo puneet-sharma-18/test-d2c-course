@@ -110,7 +110,7 @@ Then it cannot run red-flag checks, and it will say so rather than guessing. Exp
 
 ## What good looks like
 
-[`examples/the-paan-legacy/my-work/influencer-scout/`](examples/the-paan-legacy/my-work/influencer-scout/).
+[`examples/the-paan-legacy/my-work/influencer-scout/`](examples/the-paan-legacy/my-work/influencer-scout/) and [`examples/little-lab/my-work/influencer-scout/`](examples/little-lab/my-work/influencer-scout/).
 
 ---
 

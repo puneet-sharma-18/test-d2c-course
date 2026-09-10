@@ -131,7 +131,7 @@ It refuses to invent festival dates it cannot source. Fill them in yourself, the
 
 ## What good looks like
 
-[`examples/the-paan-legacy/my-work/content-lead/`](examples/the-paan-legacy/my-work/content-lead/) holds a complete worked run. Open the index first, exactly as you should with your own.
+[`examples/the-paan-legacy/my-work/content-lead/`](examples/the-paan-legacy/my-work/content-lead/) and [`examples/little-lab/my-work/content-lead/`](examples/little-lab/my-work/content-lead/) each hold a complete run. Open the index first, exactly as you should with your own.
 
 ---
 

@@ -106,6 +106,8 @@ If it does not sound like you, open the SKILL.md and fix the rule that let it th
 
 **A worked version:** [`examples/the-paan-legacy/authored-skills/write-in-brand-voice.SKILL.md`](examples/the-paan-legacy/authored-skills/write-in-brand-voice.SKILL.md). Read it after you write yours, not before.
 
+For the reports, compare [`the-paan-legacy/my-work/voice-of-customer/`](examples/the-paan-legacy/my-work/voice-of-customer/) against [`little-lab/my-work/voice-of-customer/`](examples/little-lab/my-work/voice-of-customer/). Same skill, a food brand and a cosmetics brand, and the themes it surfaces are nothing alike.
+
 ---
 
 ## Check it worked

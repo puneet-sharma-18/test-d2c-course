@@ -29,7 +29,8 @@ d2c-insider-ai-bootcamp/
 │   └── agents/                      4 subagents
 ├── references/                      deep dives, one folder per session
 └── examples/
-    └── the-paan-legacy/             one brand, fully worked, all 10 teammates
+    ├── little-lab/                  baby skincare, CDSCO, marketplace-heavy
+    └── the-paan-legacy/             gourmet paan, FSSAI, quick commerce
 ```
 
 Two folders get created as you work and are **never committed**: `brand-brain/`, your inputs, and `my-work/`, your teammates' output. Your business data stays on your machine.
@@ -58,9 +59,18 @@ Add-ons: `/influencer-scout` (Session 11), the Telegram bot (Session 12), `/fal-
 
 **Default and Power scope.** Every skill asks you to pick at the start. Default fits a Pro plan and the session slot. Power is for Max or take home. Same lesson either way.
 
-## The worked example
+## The worked examples
 
-`examples/the-paan-legacy/` is one gourmet paan brand taken through all ten teammates: filled `CLAUDE.md`, the `brand-brain/` inputs behind it, and 40-plus real outputs in `my-work/`. When a session's instructions are clear but you cannot picture the output, open the matching folder there.
+Two brands, each taken through all ten teammates. Same framework, deliberately different category shapes.
+
+| Brand | Category | Compliance | Distribution |
+|---|---|---|---|
+| [`examples/little-lab/`](examples/little-lab/) | Baby skincare | CDSCO | Amazon and Flipkart heavy |
+| [`examples/the-paan-legacy/`](examples/the-paan-legacy/) | Gourmet paan | FSSAI | Own site, quick commerce, plus franchise and corporate |
+
+Each carries a filled `CLAUDE.md`, the `brand-brain/` inputs that produced it, raw `sample-inputs/`, and everything all ten teammates wrote in `my-work/`.
+
+When a session's instructions are clear but you cannot picture the output, open the matching folder in whichever brand is closer to yours. Start at [`examples/README.md`](examples/README.md).
 
 ## Requirements
 

@@ -132,7 +132,7 @@ It read raw outputs instead of indexes. Restart it and say explicitly: "read onl
 
 ## What good looks like
 
-[`examples/the-paan-legacy/my-work/captain/`](examples/the-paan-legacy/my-work/captain/) has a day one summary, a 90 day roadmap and a summary.
+[`examples/the-paan-legacy/my-work/captain/`](examples/the-paan-legacy/my-work/captain/) and [`examples/little-lab/my-work/captain/`](examples/little-lab/my-work/captain/) each have a day one summary, a 90 day roadmap and a summary.
 
 Read [`references/module-10-capstone/standing-schedule.md`](references/module-10-capstone/standing-schedule.md) before you wire anything.
 

@@ -53,7 +53,7 @@ You can ask Claude to do it for you:
 Add the Shopify MCP server to this project as a project-scoped server in .mcp.json, then tell me exactly what I need to authenticate and where I get it.
 ```
 
-**Not on Shopify?** Use the sample data instead. `examples/d2c-marketplace-samples/` holds realistic Amazon and Flipkart exports, and `examples/the-paan-legacy/sample-inputs/` holds Shopify-shape CSVs. You will learn the same lesson one step removed.
+**Not on Shopify?** Use the sample data instead. `examples/d2c-marketplace-samples/` holds realistic Amazon and Flipkart exports, and both `examples/the-paan-legacy/sample-inputs/` and `examples/little-lab/sample-inputs/` hold Shopify-shape CSVs, ad spend exports and support threads. You will learn the same lesson one step removed.
 
 ### 3. Verify the connection points at the right place
 

@@ -145,11 +145,11 @@ Say `skip` through the rest and save. The unfinished sections are marked TODO. C
 
 ## What good looks like
 
-Open [`examples/the-paan-legacy/CLAUDE.md`](examples/the-paan-legacy/CLAUDE.md).
+Open the filled profile in whichever brand is closer to yours: [`examples/the-paan-legacy/CLAUDE.md`](examples/the-paan-legacy/CLAUDE.md) for food under FSSAI, or [`examples/little-lab/CLAUDE.md`](examples/little-lab/CLAUDE.md) for cosmetics under CDSCO.
 
 Read Section 7 in particular. Notice that the voice rules are not adjectives, they are examples: "name the thing, do not adjective it", followed by a real line from the brand's own product page. Notice the claim wall is a table with a named risk at the bottom. That is the standard.
 
-Then open [`examples/the-paan-legacy/brand-brain/`](examples/the-paan-legacy/brand-brain/) to see the input files that produced it.
+Then open the matching [`brand-brain/`](examples/the-paan-legacy/brand-brain/) folder to see the input files that produced it. Read both brands' Section 7 side by side if you have five minutes: same framework, two completely different compliance regimes, and you can see exactly where the difference comes from.
 
 ---
 

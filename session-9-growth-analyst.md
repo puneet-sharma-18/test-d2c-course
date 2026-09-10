@@ -154,6 +154,8 @@ Your instructions did not cap the reply. Edit the routine and put the "three thi
 
 [`examples/the-paan-legacy/my-work/growth-analyst/`](examples/the-paan-legacy/my-work/growth-analyst/), including the dashboard. Open the dashboard file in a browser to see the shape you are aiming at.
 
+**Read both briefs in that folder, the May one and the September one.** Same brand, four months apart. The September brief is sharper because the inputs got better, and its archive holds two weeks of numbers rather than one. That is the argument for scheduling this rather than running it once.
+
 Read [`references/module-9-growth-analyst/monday-brief-spec.md`](references/module-9-growth-analyst/monday-brief-spec.md) for the full spec.
 
 ---
