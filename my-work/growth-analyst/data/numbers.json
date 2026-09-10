@@ -1,0 +1,135 @@
+{
+  "as_of": "2026-09-10",
+  "brand": "The Paan Legacy",
+  "stage": "1cr_to_50cr",
+  "stage_note": "Founder's May record puts revenue near 30,00,000 per month, about 3.6Cr annualised. Stage assignment rests on a four month old figure.",
+  "running_on_sample_data": true,
+  "sample_data_note": "Nothing here is fabricated. Meta figures are live and verified. Non-Meta figures are the founder's own 2026-05-12 record, reproduced as their estimate and never as current truth.",
+  "founder_truth": {
+    "source": "CLAUDE.md Sections 2, 4 and 7, from the founder's unit economics sheet",
+    "written_on": "2026-05-12",
+    "age_days_at_brief": 121,
+    "revenue_monthly_inr": 3000000,
+    "aov_blended_90d_inr": 734,
+    "gross_margin_pct": [58, 60],
+    "contribution_margin_d2c_pct": [38, 42],
+    "contribution_margin_marketplace_pct": [28, 32],
+    "cac_blended_inr": 475,
+    "cac_target_inr": 400,
+    "ltv_12m_estimate_inr": 1180,
+    "ltv_gross_profit_inr": 700,
+    "ltv_to_cac": 2.5,
+    "ltv_to_cac_target": 2.9,
+    "repeat_purchase_rate_pct": 30,
+    "meta_spend_per_7d_inr": 155000,
+    "google_spend_per_7d_inr": 19100,
+    "marketplace_sponsored_per_7d_inr": 8400,
+    "channel_mix_rolling_pct": {
+      "d2c_and_whatsapp": 60,
+      "quick_commerce": 25,
+      "franchise": 10,
+      "corporate": 5
+    },
+    "offline_share_pct": 15
+  },
+  "live": {
+    "source": "Meta ad account 888048036093502, read 2026-09-10",
+    "meta_spend_7d_inr": 0,
+    "meta_spend_28d_inr": 1615.56,
+    "meta_spend_90d_inr": 1615.56,
+    "meta_impressions_28d": 3754,
+    "meta_clicks_28d": 62,
+    "meta_ctr_28d_pct": 1.65,
+    "meta_cpc_28d_inr": 26.06,
+    "meta_cpm_28d_inr": 430.36,
+    "meta_active_campaigns_with_spend_90d": 1,
+    "meta_only_spending_campaign": "The Paan Legacy, Mukhwas Sales (Prospecting)",
+    "meta_last_spend_week": "2026-08-13 to 2026-08-19",
+    "days_dark": 22,
+    "revenue_7d_inr": null,
+    "orders_7d": null,
+    "aov_7d_inr": null,
+    "new_customers_7d": null,
+    "repeat_customers_7d": null,
+    "computed_cac_inr": null,
+    "blended_roas": null,
+    "per_channel": [
+      { "channel": "Meta", "revenue_inr": null, "orders": null, "spend_inr": 0, "roas": null, "connected": true },
+      { "channel": "Google", "revenue_inr": null, "orders": null, "spend_inr": null, "roas": null, "connected": false },
+      { "channel": "D2C site and WhatsApp", "revenue_inr": null, "orders": null, "spend_inr": null, "roas": null, "connected": false },
+      { "channel": "Zomato", "revenue_inr": null, "orders": null, "spend_inr": null, "roas": null, "connected": false },
+      { "channel": "Swiggy", "revenue_inr": null, "orders": null, "spend_inr": null, "roas": null, "connected": false },
+      { "channel": "Franchise, 3 outlets", "revenue_inr": null, "orders": null, "spend_inr": null, "roas": null, "connected": false },
+      { "channel": "Corporate gifting", "revenue_inr": null, "orders": null, "spend_inr": null, "roas": null, "connected": false }
+    ],
+    "trend_4w": [
+      { "week_start": "2026-08-13", "week_end": "2026-08-19", "meta_spend_inr": 1615.56, "impressions": 3754, "clicks": 62 },
+      { "week_start": "2026-08-20", "week_end": "2026-08-26", "meta_spend_inr": 0, "impressions": 0, "clicks": 0 },
+      { "week_start": "2026-08-27", "week_end": "2026-09-02", "meta_spend_inr": 0, "impressions": 0, "clicks": 0 },
+      { "week_start": "2026-09-03", "week_end": "2026-09-09", "meta_spend_inr": 0, "impressions": 0, "clicks": 0 }
+    ]
+  },
+  "alarm": {
+    "metric": "Meta ad spend",
+    "this_week_inr": 0,
+    "prior_week_inr": 0,
+    "founder_baseline_per_7d_inr": 155000,
+    "delta_vs_baseline_pct": -100,
+    "driver": "No Meta campaign has spent since the week ending 2026-08-19. Total 90 day spend is 1,615.56, all of it on one mukhwas prospecting campaign. The best performing creative, the heritage ritual angle on Almond Delight, is not running.",
+    "context": "Diwali is 2026-11-08, 59 days out. The founder's own gifting window last year ran 5 October to 8 November. The Market Analyst report found 13 of 25 ads in a corporate Diwali search live on 8 and 9 September.",
+    "recommended_action": "Establish whether the stop was deliberate. Ad account 1145209407174523 is DISABLED and flagged for unusual activity, but the spending account 888048036093502 is active with a payment method, so the flag does not by itself explain the silence. If the stop was not deliberate, relight the heritage ritual creative on Almond Delight this week.",
+    "expected_outcome": "Acquisition spend restored before the 5 October gifting window opens."
+  },
+  "gaps": [
+    {
+      "metric": "meta_spend_per_7d",
+      "founder_value_inr": 155000,
+      "live_value_inr": 0,
+      "divergence_pct": -100,
+      "flagged": true,
+      "note": "The largest divergence in the brief and the reason the alarm fired."
+    },
+    {
+      "metric": "revenue, orders, aov, cac, ltv, repeat_rate",
+      "founder_value": "see founder_truth",
+      "live_value": null,
+      "divergence_pct": null,
+      "flagged": true,
+      "note": "Cannot be compared. No store connection for this brand, so there is no live side to diverge from."
+    }
+  ],
+  "missing": [
+    "shopify_store_thepaanlegacy",
+    "google_ads_account",
+    "zomato_partner_dashboard",
+    "swiggy_partner_dashboard",
+    "franchise_pos",
+    "prior_week_brief"
+  ],
+  "wrong_connection": {
+    "shopify_connected_store": "Anutilam Rice, anutilam.com",
+    "note": "A Shopify store is connected but it belongs to a different brand. No data was read from it."
+  },
+  "cross_teammate_inputs": [
+    {
+      "teammate": "Market Analyst",
+      "file": "my-work/market-analyst/2026-09-09-intel-report.md",
+      "key_insight": "Bombay Sweet Shop running at least 13 live creatives on 5 and 9 September, and 13 of 25 ads in a corporate Diwali search live, one targeting Bangalore companies by name."
+    },
+    {
+      "teammate": "Voice of Customer",
+      "file": "my-work/voice-of-customer/2026-09-09-voc-report.md",
+      "key_insight": "30% repeat rate independently corroborated, 8 of 27 customers show a documented second purchase. Repeat does not need ad spend, acquisition does."
+    },
+    {
+      "teammate": "Content Lead",
+      "file": "my-work/content-lead/2026-09-09-index.md",
+      "key_insight": "The corporate Diwali email is drafted and unshipped. Creative exists for the gap that is currently unfunded."
+    },
+    {
+      "teammate": "Marketplace Editor and Storefront Specialist",
+      "file": "my-work/marketplace-editor/2026-09-10-index.md",
+      "key_insight": "Both stop at the mukhwas packaging decision, which is also the only SKU the last ad rupees went to."
+    }
+  ]
+}

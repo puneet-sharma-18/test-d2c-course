@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growth Dashboard, The Paan Legacy, 2026-09-10</title>
+<style>
+  :root{
+    --ink:#1a1a17; --paper:#f7f5f0; --card:#fffefb; --muted:#6d675e;
+    --line:#e3ddd2; --accent:#1f4d3d; --accent-soft:#eaf1ed;
+    --alarm:#9c2b26; --alarm-bg:#fbf0ef; --alarm-line:#e8cbc8;
+    --radius:10px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font:15px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1020px;margin:0 auto;padding:32px 20px 72px}
+  h1{font-size:26px;line-height:1.2;margin:0 0 4px;letter-spacing:-.01em}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+    margin:36px 0 12px;font-weight:600}
+  .meta{color:var(--muted);font-size:13px;margin:0 0 18px}
+  .headline{font-size:19px;line-height:1.45;margin:0 0 8px;max-width:70ch}
+  .banner{background:#fdf8e8;border:1px solid #e8dcae;border-radius:var(--radius);
+    padding:14px 16px;margin:0 0 26px;font-size:14px;color:#5c4c1e}
+  .banner b{color:#3f3413}
+  .alarm{background:var(--alarm-bg);border:1px solid var(--alarm-line);
+    border-left:4px solid var(--alarm);border-radius:var(--radius);padding:22px 24px;margin:0 0 8px}
+  .alarm .tag{font-size:11px;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--alarm);font-weight:700;margin-bottom:10px}
+  .alarm .big{font-size:30px;font-weight:650;letter-spacing:-.02em;margin:0 0 10px;color:var(--alarm)}
+  .alarm p{margin:0 0 10px;max-width:72ch}
+  .alarm .do{background:#fff;border:1px solid var(--alarm-line);border-radius:8px;
+    padding:12px 14px;margin-top:14px;font-size:14px}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px}
+  .kpi .label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .kpi .val{font-size:23px;font-weight:650;letter-spacing:-.02em;margin:6px 0 3px}
+  .kpi .sub{font-size:12px;color:var(--muted)}
+  .kpi.nodata .val{color:var(--muted);font-weight:500;font-size:17px}
+  .dir{font-size:12px;font-weight:600}
+  .down{color:var(--alarm)} .flat{color:var(--muted)}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--muted);font-weight:600;padding:0 10px 9px 0;border-bottom:1px solid var(--line)}
+  td{padding:11px 10px 11px 0;border-bottom:1px solid var(--line)}
+  tr:last-child td{border-bottom:none}
+  .nc{color:var(--muted);font-style:italic;opacity:.75}
+  .zero{color:var(--alarm);font-weight:650}
+  .cite{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:13px 15px;margin-bottom:9px}
+  .cite .who{font-weight:650;font-size:13px}
+  .cite .path{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;
+    color:var(--accent);word-break:break-all}
+  .cite .ins{font-size:13.5px;color:#3c382f;margin-top:5px;max-width:80ch}
+  .gap{border-left:3px solid var(--alarm);padding:10px 0 10px 13px;margin-bottom:12px;font-size:14px}
+  .gap .g-metric{font-weight:650}
+  .gap .g-note{color:var(--muted);font-size:13px;margin-top:3px;max-width:78ch}
+  .chartwrap{overflow-x:auto}
+  .foot{color:var(--muted);font-size:12.5px;margin-top:34px;border-top:1px solid var(--line);padding-top:16px;max-width:80ch}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script type="application/json" id="data">
+{
+  "as_of": "2026-09-10",
+  "brand": "The Paan Legacy",
+  "headline": "Your Meta account has been dark for 22 days, 59 days before Diwali, while at least 13 competitors are already bidding on the gifting auction you are about to enter.",
+  "running_on_sample_data": true,
+  "sample_banner": "Meta figures on this page are live and verified against your ad account today. Revenue, orders, AOV, CAC, LTV and repeat rate are your own record from 2026-05-12, four months old. The connected Shopify store is Anutilam Rice, a different brand, and no data was read from it. To fix: connect The Paan Legacy store, then refresh your unit economics sheet.",
+  "alarm": {
+    "metric": "Meta ad spend, last 7 days",
+    "value_inr": 0,
+    "baseline_inr": 155000,
+    "delta_pct": -100,
+    "line1": "No Meta campaign has spent since the week ending 19 August 2026. Your entire 90 day spend is 1,615.56, all of it on one mukhwas prospecting campaign. The heritage ritual creative on Almond Delight, your best performer, is not running.",
+    "line2": "Diwali is 8 November, 59 days out. Your own gifting window last year ran 5 October to 8 November. The Market Analyst report found 13 of 25 ads in a corporate Diwali search live on 8 and 9 September.",
+    "action": "Establish whether the stop was deliberate. Account 1145209407174523 is DISABLED and flagged for unusual activity, but the spending account 888048036093502 is active with a payment method, so the flag does not by itself explain the silence. If the stop was not deliberate, relight the heritage ritual creative on Almond Delight this week.",
+    "expected": "Acquisition spend restored before the 5 October gifting window opens."
+  },
+  "kpis": [
+    { "label": "Meta spend, 7d", "value_inr": 0, "sub": "Prior week ₹0. May baseline ₹1,55,000/wk", "dir": "down", "dir_text": "100% below baseline" },
+    { "label": "Meta spend, 28d", "value_inr": 1615.56, "sub": "All of it in the week to 19 Aug", "dir": "down", "dir_text": "one active week in 90 days" },
+    { "label": "Days dark", "value_raw": "22", "sub": "Last spend 19 August 2026", "dir": "down", "dir_text": "and counting" },
+    { "label": "Impressions, 28d", "value_raw": "3,754", "sub": "62 clicks, CTR 1.65%", "dir": "flat", "dir_text": "one campaign only" },
+    { "label": "CPC, 28d", "value_inr": 26.06, "sub": "CPM ₹430.36", "dir": "flat", "dir_text": "thin sample, 62 clicks" },
+    { "label": "Revenue, 7d", "nodata": true, "sub": "Store not connected" }
+  ],
+  "trend": {
+    "title": "Meta ad spend by week, last 4 weeks",
+    "unit": "INR",
+    "points": [
+      { "label": "13 to 19 Aug", "value": 1615.56 },
+      { "label": "20 to 26 Aug", "value": 0 },
+      { "label": "27 Aug to 2 Sep", "value": 0 },
+      { "label": "3 to 9 Sep", "value": 0 }
+    ]
+  },
+  "channels": [
+    { "channel": "Meta", "revenue": null, "orders": null, "spend_inr": 0, "roas": null, "connected": true },
+    { "channel": "Google", "revenue": null, "orders": null, "spend_inr": null, "roas": null, "connected": false },
+    { "channel": "D2C site and WhatsApp", "revenue": null, "orders": null, "spend_inr": null, "roas": null, "connected": false },
+    { "channel": "Zomato", "revenue": null, "orders": null, "spend_inr": null, "roas": null, "connected": false },
+    { "channel": "Swiggy", "revenue": null, "orders": null, "spend_inr": null, "roas": null, "connected": false },
+    { "channel": "Franchise, 3 outlets", "revenue": null, "orders": null, "spend_inr": null, "roas": null, "connected": false },
+    { "channel": "Corporate gifting", "revenue": null, "orders": null, "spend_inr": null, "roas": null, "connected": false }
+  ],
+  "citations": [
+    { "who": "Market Analyst", "path": "my-work/market-analyst/2026-09-09-intel-report.md", "insight": "Bombay Sweet Shop running at least 13 live creatives on 5 and 9 September. 13 of 25 ads in a corporate Diwali search live, one targeting Bangalore companies by name." },
+    { "who": "Voice of Customer", "path": "my-work/voice-of-customer/2026-09-09-voc-report.md", "insight": "30% repeat rate independently corroborated, 8 of 27 customers with a documented second purchase. Repeat does not need ad spend. Acquisition does." },
+    { "who": "Content Lead", "path": "my-work/content-lead/2026-09-09-index.md", "insight": "The corporate Diwali email is drafted and unshipped. Creative already exists for the gap that is currently unfunded." },
+    { "who": "Marketplace Editor and Storefront Specialist", "path": "my-work/marketplace-editor/2026-09-10-index.md", "insight": "Both stop at the mukhwas packaging decision, which is also the only SKU the last ad rupees went to." }
+  ],
+  "gaps": [
+    { "metric": "Meta spend per 7 days", "founder": "₹1,55,000", "live": "₹0", "delta": "-100%", "note": "The largest divergence in the brief and the reason the alarm fired." },
+    { "metric": "Revenue, orders, AOV, CAC, LTV, repeat rate", "founder": "See the May record in the brief", "live": "no data", "delta": "not comparable", "note": "No store connection for this brand, so there is no live side to diverge from." }
+  ]
+}
+</script>
+
+<script>
+(function(){
+  var D = JSON.parse(document.getElementById('data').textContent);
+
+  function inr(n){
+    if(n===null||n===undefined) return 'no data';
+    var isInt = Number(n)%1===0;
+    var s = Number(n).toFixed(isInt?0:2);
+    var p = s.split('.');
+    var x = p[0], last3 = x.slice(-3), rest = x.slice(0,-3);
+    if(rest) last3 = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + last3;
+    return '₹' + last3 + (p[1] ? '.'+p[1] : '');
+  }
+  function esc(s){ return String(s).replace(/[&<>]/g, function(c){
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]; }); }
+
+  var h = [];
+
+  h.push('<h1>'+esc(D.brand)+'</h1>');
+  h.push('<p class="meta">Growth Dashboard, week of '+esc(D.as_of)+'</p>');
+  h.push('<p class="headline">'+esc(D.headline)+'</p>');
+
+  if(D.running_on_sample_data){
+    h.push('<div class="banner"><b>Running on partly estimated data.</b> '+esc(D.sample_banner)+'</div>');
+  }
+
+  if(D.alarm){
+    var a = D.alarm;
+    h.push('<div class="alarm">');
+    h.push('<div class="tag">The one number this week</div>');
+    h.push('<div class="big">'+inr(a.value_inr)+' &middot; '+esc(a.metric)+'</div>');
+    h.push('<p>'+esc(a.line1)+'</p>');
+    h.push('<p>'+esc(a.line2)+'</p>');
+    h.push('<div class="do"><b>Do this week.</b> '+esc(a.action)+' <i>Expected outcome: '+esc(a.expected)+'</i></div>');
+    h.push('</div>');
+  } else {
+    h.push('<div class="panel"><b>Steady week.</b> Nothing crossed a threshold.</div>');
+  }
+
+  h.push('<h2>Key numbers</h2><div class="kpis">');
+  D.kpis.forEach(function(k){
+    if(k.nodata){
+      h.push('<div class="kpi nodata"><div class="label">'+esc(k.label)+'</div>'+
+             '<div class="val">no data</div><div class="sub">'+esc(k.sub)+'</div></div>');
+      return;
+    }
+    var v = (k.value_inr!==undefined) ? inr(k.value_inr) : esc(k.value_raw);
+    var arrow = k.dir==='down' ? '↓ ' : (k.dir==='up' ? '↑ ' : '');
+    h.push('<div class="kpi"><div class="label">'+esc(k.label)+'</div>'+
+           '<div class="val">'+v+'</div>'+
+           '<div class="sub">'+esc(k.sub)+'</div>'+
+           '<div class="dir '+(k.dir||'flat')+'">'+arrow+esc(k.dir_text||'')+'</div></div>');
+  });
+  h.push('</div>');
+
+  var t = D.trend;
+  if(t && t.points && t.points.length){
+    var max = Math.max.apply(null, t.points.map(function(p){return p.value;}));
+    if(max<=0) max = 1;
+    var W=760, H=210, padL=64, padB=42, padT=14;
+    var n=t.points.length, slot=(W-padL-16)/n, bw=Math.min(74, slot*0.5);
+    var svg=['<svg viewBox="0 0 '+W+' '+H+'" width="100%" height="'+H+'" role="img" aria-label="'+esc(t.title)+'">'];
+    [0,0.5,1].forEach(function(f){
+      var y=padT+(H-padT-padB)*(1-f);
+      svg.push('<line x1="'+padL+'" y1="'+y+'" x2="'+(W-8)+'" y2="'+y+'" stroke="#e3ddd2" stroke-width="1"/>');
+      svg.push('<text x="'+(padL-9)+'" y="'+(y+4)+'" text-anchor="end" font-size="10.5" fill="#6d675e">'+inr(Math.round(max*f))+'</text>');
+    });
+    t.points.forEach(function(p,i){
+      var cx=padL+slot*i+slot/2;
+      var hgt=(H-padT-padB)*(p.value/max);
+      var y=H-padB-hgt;
+      if(p.value>0){
+        svg.push('<rect x="'+(cx-bw/2)+'" y="'+y+'" width="'+bw+'" height="'+Math.max(hgt,2)+'" rx="3" fill="#1f4d3d"/>');
+        svg.push('<text x="'+cx+'" y="'+(y-7)+'" text-anchor="middle" font-size="11" font-weight="650" fill="#1f4d3d">'+inr(p.value)+'</text>');
+      } else {
+        svg.push('<rect x="'+(cx-bw/2)+'" y="'+(H-padB-3)+'" width="'+bw+'" height="3" rx="1.5" fill="#e8cbc8"/>');
+        svg.push('<text x="'+cx+'" y="'+(H-padB-10)+'" text-anchor="middle" font-size="11" font-weight="650" fill="#9c2b26">₹0</text>');
+      }
+      svg.push('<text x="'+cx+'" y="'+(H-padB+18)+'" text-anchor="middle" font-size="10.5" fill="#6d675e">'+esc(p.label)+'</text>');
+    });
+    svg.push('</svg>');
+    h.push('<h2>'+esc(t.title)+'</h2><div class="panel chartwrap">'+svg.join('')+'</div>');
+  }
+
+  h.push('<h2>Per channel</h2><div class="panel"><table><thead><tr>'+
+    '<th>Channel</th><th>Revenue</th><th>Orders</th><th>Spend</th><th>ROAS</th></tr></thead><tbody>');
+  D.channels.forEach(function(c){
+    function cell(v){ return v===null||v===undefined ? '<span class="nc">not connected</span>' : esc(v); }
+    var spend = c.spend_inr===null||c.spend_inr===undefined
+      ? '<span class="nc">not connected</span>'
+      : (c.spend_inr===0 ? '<span class="zero">'+inr(0)+'</span>' : inr(c.spend_inr));
+    h.push('<tr><td>'+esc(c.channel)+'</td><td>'+cell(c.revenue)+'</td><td>'+cell(c.orders)+
+           '</td><td>'+spend+'</td><td>'+cell(c.roas)+'</td></tr>');
+  });
+  h.push('</tbody></table></div>');
+
+  h.push('<h2>What shaped this brief</h2>');
+  D.citations.forEach(function(c){
+    h.push('<div class="cite"><div class="who">'+esc(c.who)+'</div>'+
+           '<a class="path" href="'+esc(c.path)+'">'+esc(c.path)+'</a>'+
+           '<div class="ins">'+esc(c.insight)+'</div></div>');
+  });
+
+  if(D.gaps && D.gaps.length){
+    h.push('<h2>Where the numbers disagree</h2><div class="panel">');
+    D.gaps.forEach(function(g){
+      h.push('<div class="gap"><div class="g-metric">'+esc(g.metric)+' &middot; '+esc(g.delta)+'</div>'+
+             '<div>Your record: '+esc(g.founder)+'. Live: '+esc(g.live)+'.</div>'+
+             '<div class="g-note">'+esc(g.note)+'</div></div>');
+    });
+    h.push('</div>');
+  }
+
+  h.push('<p class="foot">Every number on this page comes from the data block inside this file. '+
+    'Meta figures read live from ad account 888048036093502 on 2026-09-10. '+
+    'The full read is in <b>2026-09-10-brief.md</b>. This page makes no network calls and needs no server.</p>');
+
+  document.getElementById('app').innerHTML = h.join('');
+})();
+</script>
+</body>
+</html>
