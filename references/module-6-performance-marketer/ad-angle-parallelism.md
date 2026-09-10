@@ -4,7 +4,7 @@ This document goes deeper than the BRIEF on the new primitive Module 6 introduce
 
 ## The one rule that makes this work
 
-The dispatcher is the **orchestrator** — your top-level Claude session in the terminal — not a subagent. A subagent cannot spawn subagents in Claude Code: nesting is capped at one level. So the parallel fan-out has to live one level up, at the orchestrator, the session that sits above every subagent.
+The dispatcher is the **orchestrator** — your top-level Claude session — not a subagent. A subagent cannot spawn subagents in Claude Code: nesting is capped at one level. So the parallel fan-out has to live one level up, at the orchestrator, the session that sits above every subagent.
 
 (An earlier version of this module wired the fan-out *inside* the Performance Marketer subagent — "a parent subagent spawns 5 children." That does not run in parallel. A spawned subagent has no power to spawn its own children, so it just works the angles one after another. The fix is to keep the fan-out at the orchestrator.)
 
