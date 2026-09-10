@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D2C Insider AI Bootcamp, Session Flows</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #6366F1;
+  --primary-hover: #4F46E5;
+  --neutral: #9C9C9C;
+  --bg: #FAFAFA;
+  --surface: #FFFFFF;
+  --text: #0A0A0A;
+  --text-2: #6B6B6B;
+  --border: #E8E8EC;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --display: "General Sans", system-ui, sans-serif;
+  --body: "DM Sans", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-hover); text-decoration: underline; }
+code, pre, .mono { font-family: var(--mono); font-size: 13px; }
+pre {
+  background: #0A0A0A;
+  color: #E8E8EC;
+  padding: 16px 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.inline-code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: #F1F1F4;
+  color: #0A0A0A;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0;
+}
+h1 { font-size: 60px; line-height: 1.05; letter-spacing: -0.04em; }
+h2 { font-size: 32px; line-height: 1.15; }
+h3 { font-size: 22px; line-height: 1.25; letter-spacing: -0.02em; }
+h4 { font-size: 17px; font-weight: 600; }
+p { margin: 0; }
+.muted { color: var(--text-2); }
+.tiny { font-size: 13px; color: var(--text-2); }
+
+/* Nav */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  height: 56px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+nav .inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+nav .brand {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  display: flex; align-items: center; gap: 8px;
+}
+nav .brand .dot {
+  width: 8px; height: 8px; border-radius: 9999px;
+  background: var(--primary);
+  display: inline-block;
+}
+nav ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; gap: 4px;
+}
+nav ul a {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+nav ul a:hover { background: #F1F1F4; text-decoration: none; }
+@media (max-width: 820px) {
+  nav ul { display: none; }
+}
+
+/* Container */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+.section-head { margin-bottom: 40px; max-width: 720px; }
+.section-head .overline {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.section-head p { color: var(--text-2); font-size: 16px; margin-top: 12px; }
+
+/* Hero */
+#hero { padding: 80px 0 64px; border-bottom: 1px solid var(--border); }
+#hero .overline {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+#hero h1 { max-width: 880px; }
+#hero .lead {
+  max-width: 640px;
+  font-size: 18px;
+  color: var(--text-2);
+  margin-top: 20px;
+}
+.quick-links {
+  margin-top: 36px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+}
+.chip:hover { border-color: var(--primary); color: var(--primary); text-decoration: none; }
+.chip .num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-2);
+}
+
+/* Cards */
+.cards { display: grid; gap: 20px; }
+.cards-2 { grid-template-columns: repeat(2, 1fr); }
+.cards-3 { grid-template-columns: repeat(3, 1fr); }
+.cards-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 920px) { .cards-3, .cards-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .cards-2, .cards-3, .cards-4 { grid-template-columns: 1fr; } }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  border-color: #D6D6DC;
+}
+.card .meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.card .meta .pill {
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: #F1F1F4;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.card .meta .pill.day-1 { background: #EEF2FF; color: var(--primary-hover); }
+.card .meta .pill.day-2 { background: #ECFDF5; color: var(--success); }
+.card .meta .pill.addon { background: #FEF3C7; color: #92400E; }
+.card h3 { margin-bottom: 8px; }
+.card .desc { color: var(--text-2); font-size: 14px; }
+.card .footer {
+  margin-top: 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 13px;
+}
+.card .footer .file {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-2);
+}
+.card .footer a {
+  font-weight: 500;
+}
+
+/* Arc */
+.arc {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+.arc-day {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+}
+.arc-day h3 {
+  display: flex; align-items: baseline; gap: 12px;
+  margin-bottom: 6px;
+}
+.arc-day h3 .tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+.arc-day .blurb { color: var(--text-2); margin-bottom: 24px; max-width: 560px; }
+
+.flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+@media (max-width: 920px) { .flow { grid-template-columns: 1fr; } }
+.flow .step {
+  position: relative;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #FAFAFA;
+}
+.flow .step .stage {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.flow .step .title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.flow .step .sub {
+  font-size: 12px;
+  color: var(--text-2);
+}
+.flow .step + .step::before {
+  content: "›";
+  position: absolute;
+  left: -10px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--neutral);
+  font-size: 16px;
+}
+@media (max-width: 920px) {
+  .flow .step + .step::before { display: none; }
+}
+
+/* Sessions list */
+.session-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 920px) { .session-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .session-grid { grid-template-columns: 1fr; } }
+.session-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+  text-decoration: none;
+  color: inherit;
+}
+.session-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  border-color: #D6D6DC;
+  text-decoration: none;
+}
+.session-card .num {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-2);
+}
+.session-card h4 { font-size: 18px; letter-spacing: -0.02em; font-family: var(--display); font-weight: 600; }
+.session-card .outcome { color: var(--text-2); font-size: 14px; flex: 1; }
+.session-card .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.session-card .day {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  background: #EEF2FF;
+  color: var(--primary-hover);
+  font-weight: 600;
+}
+.session-card .day.day-2 { background: #ECFDF5; color: var(--success); }
+.session-card .day.addon { background: #FEF3C7; color: #92400E; }
+.session-card .day.setup { background: #F1F1F4; color: var(--text-2); }
+.session-card .opens {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-2);
+}
+
+/* Teammate roster */
+.teammate-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 920px) { .teammate-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .teammate-grid { grid-template-columns: 1fr; } }
+.teammate {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.teammate .head {
+  display: flex; align-items: center; gap: 12px;
+}
+.teammate .avatar {
+  width: 36px; height: 36px;
+  border-radius: 9999px;
+  background: #EEF2FF;
+  color: var(--primary-hover);
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 12px;
+}
+.teammate h4 { font-family: var(--display); font-weight: 600; font-size: 18px; letter-spacing: -0.02em; }
+.teammate .role { font-size: 13px; color: var(--text-2); }
+.teammate .owns { font-size: 14px; color: var(--text); }
+.teammate .rows {
+  display: grid; gap: 6px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: auto;
+}
+.teammate .row { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; }
+.teammate .row .k { color: var(--text-2); }
+.teammate .row .v { font-family: var(--mono); color: var(--text); text-align: right; }
+
+/* Catalog table */
+.catalog {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.catalog .row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr 1.4fr 1fr;
+  gap: 16px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  align-items: center;
+}
+.catalog .row:first-child { border-top: none; }
+.catalog .row.head {
+  background: #FAFAFA;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-2);
+  font-weight: 500;
+}
+.catalog .row .name { font-weight: 500; }
+.catalog .row .path { font-family: var(--mono); font-size: 12px; color: var(--text-2); overflow-wrap: anywhere; }
+.catalog .row .where { color: var(--text-2); font-size: 13px; }
+.catalog .row .kind {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  background: #F1F1F4;
+  color: var(--text-2);
+  display: inline-block;
+  width: max-content;
+  font-weight: 500;
+}
+.catalog .row .kind.skill { background: #EEF2FF; color: var(--primary-hover); }
+.catalog .row .kind.agent { background: #ECFDF5; color: var(--success); }
+.catalog .row .kind.command { background: #FEF3C7; color: #92400E; }
+@media (max-width: 820px) {
+  .catalog .row { grid-template-columns: 1fr; gap: 4px; }
+  .catalog .row.head { display: none; }
+}
+
+/* Glossary */
+.glossary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (max-width: 620px) { .glossary-grid { grid-template-columns: 1fr; } }
+.term {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+}
+.term h4 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.term .what {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--primary-hover);
+  background: #EEF2FF;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.term p { font-size: 14px; color: var(--text-2); margin-bottom: 8px; }
+.term .where { font-size: 13px; color: var(--text); }
+.term .where b { font-weight: 600; }
+
+/* Repo tour */
+.tree {
+  background: #0A0A0A;
+  color: #E8E8EC;
+  border-radius: 12px;
+  padding: 28px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-x: auto;
+}
+.tree .dim { color: #6B6B6B; }
+.tree .note { color: #9CA3AF; font-style: italic; }
+.tree .label { color: #C7D2FE; }
+.tree .file { color: #FDE68A; }
+
+/* Resources block */
+.res-table {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.res-table .row {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.4fr;
+  gap: 16px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+.res-table .row:first-child { border-top: none; }
+.res-table .row.head {
+  background: #FAFAFA;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-2);
+  font-weight: 500;
+}
+.res-table .name { font-weight: 600; }
+.res-table .feeds { color: var(--text-2); font-size: 13px; }
+.res-table .note { color: var(--text-2); font-size: 13px; }
+@media (max-width: 820px) {
+  .res-table .row { grid-template-columns: 1fr; gap: 4px; }
+  .res-table .row.head { display: none; }
+}
+
+footer {
+  padding: 48px 0 80px;
+  font-size: 13px;
+  color: var(--text-2);
+  text-align: center;
+}
+footer a { color: var(--text-2); text-decoration: underline; }
+
+/* Anchor offset for sticky nav */
+section[id] { scroll-margin-top: 72px; }
+
+.callout {
+  background: #EEF2FF;
+  border: 1px solid #C7D2FE;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--text);
+}
+.callout b { font-weight: 600; }
+details { border:1px solid var(--border); border-radius:8px; padding:10px 14px; background:var(--surface); margin:12px 0; }
+summary { cursor:pointer; color:var(--text-2); }
+.flow ul { margin:8px 0 0; padding-left:18px; }
+.flow li { margin-bottom:5px; font-size:13.5px; line-height:1.5; }
+.sticky-nav { position:sticky; top:0; background:var(--bg); padding:10px 0; border-bottom:1px solid var(--border); z-index:5; margin-bottom:18px; }
+.sticky-nav a { display:inline-block; min-width:26px; text-align:center; padding:3px 7px; margin-right:3px;
+  border:1px solid var(--border); border-radius:6px; background:var(--surface); font-size:12.5px; text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="chip">Session flows</div>
+  <h1>Every session at a glance</h1>
+  <p class="lede">Prerequisites, the flow, and the check that tells you it worked. Generated from the session files, so it never says something the sessions do not.</p>
+  <div class="quick-links">
+    <a href="index.html">Reference home</a>
+    <a href="../student-handbook.md">Student handbook</a>
+    <a href="../examples/README.md">Worked examples</a>
+  </div>
+</header>
+
+<div class="sticky-nav"><a href="#s0">0</a> <a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a> <a href="#s4">4</a> <a href="#s5">5</a> <a href="#s6">6</a> <a href="#s7">7</a> <a href="#s8">8</a> <a href="#s9">9</a> <a href="#s10">10</a> <a href="#s11">11</a> <a href="#s12">12</a></div>
+
+<section class="flow" id="s0">
+  <div class="section-head">
+    <div class="chip">Session 0</div>
+    <h2>Setup</h2>
+    <p class="muted">30 minutes, do it before Saturday if you can &middot; none yet, this is plumbing</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> the Claude Code desktop app installed, this repo open inside it, and one successful run</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>A Claude Pro or Max plan. Claude Code does not run on the free tier. Check at [claude.ai](https://claude.ai) under your account.</li><li>A Mac or a Windows machine you can install software on.</li><li>About 2 GB of free disk.</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Install the app</li><li>Sign in</li><li>Get this repo onto your machine</li><li>Open the folder in the app</li><li>Meet your teammates</li><li>Your first run</li><li>Set your permission mode</li><li>Copy the brand-brain template</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>The app is open on the Code tab</li><li>The folder `d2c-insider-ai-bootcamp` is selected and trusted</li><li>Typing `/` shows at least ten teammate names</li><li>Your first run answered and you clicked a file path to read something</li><li>A `brand-brain/` folder exists at the repo root</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (5)</summary>
+    <ul class=""><li>The `/` list is empty, or missing teammates.</li><li>&quot;Claude Code requires a paid plan&quot;.</li><li>Windows: tools fail or commands do nothing.</li><li>Files keep reverting, or the app says a file changed underneath it.</li><li>The app is slow or a run stops halfway.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-0-setup.md">Open the full session file &rarr;</a></p>
+</section><section class="flow" id="s1">
+  <div class="section-head">
+    <div class="chip">Session 1</div>
+    <h2>Brand Brain</h2>
+    <p class="muted">75 minutes &middot; `CLAUDE.md`, a persistent project profile</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> `CLAUDE.md` at the repo root, filled in your voice, with a voice test scored 4 or better</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>Session 0 done, `/` shows your roster</li><li>`brand-brain/` exists at the repo root, however empty</li><li>75 uninterrupted minutes. This is the one session you cannot rush, because every other teammate reads its output</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Start the session</li><li>Answer the persona questions</li><li>Watch the demo</li><li>Answer the two structure questions</li><li>Walk the eight topics</li><li>Spend real time on Topic 8</li><li>Take the voice test</li><li>Save</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>`CLAUDE.md` exists at the repo root. Click it in the chat to open it in the file pane.</li><li>Sections 1 to 7 are filled with your real answers, not brackets</li><li>Section 7 carries an ALWAYS list, a NEVER list, a reading level and your compliance wall</li><li>The voice test scored 4 or 5</li><li>Anything you skipped is marked `TODO` with a note on what is missing</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (4)</summary>
+    <ul class=""><li>It keeps writing marketing filler back at me.</li><li>It invented a fact about my brand.</li><li>I ran out of time at topic 5.</li><li>I want to start over.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-1-brand-brain.md">Open the full session file &rarr;</a></p>
+</section><section class="flow" id="s2">
+  <div class="section-head">
+    <div class="chip">Session 2</div>
+    <h2>Skills</h2>
+    <p class="muted">90 minutes &middot; Skills, reusable playbooks Claude loads on its own</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> two real reports in `my-work/`, and a skill in your own handwriting</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>`CLAUDE.md` exists and passed its voice test in Session 1</li><li>`brand-brain/reviews.md` has real reviews in it, or you have some ready to paste</li><li>`brand-brain/competitors.md` names at least three competitors</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Look at a skill before you run one</li><li>Run the Market Analyst</li><li>Read the report properly</li><li>Run the Voice of Customer</li><li>Read the one section that matters most</li><li>Write your own skill</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>`my-work/market-analyst/` has a dated intel report</li><li>`my-work/voice-of-customer/` has a dated VoC report</li><li>You answered at least one &quot;what only you can answer&quot; question back into `brand-brain/`</li><li>`.claude/skills/write-in-brand-voice/SKILL.md` exists and you edited it by hand</li><li>Typing `/` now shows `write-in-brand-voice` in the list</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (4)</summary>
+    <ul class=""><li>The skill did not trigger when I described the job in plain English.</li><li>Voice of Customer says my sample is too small.</li><li>The Market Analyst could not reach a competitor&#x27;s site.</li><li>My new skill runs but ignores my voice rules.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-2-skills.md">Open the full session file &rarr;</a></p>
+</section><section class="flow" id="s3">
+  <div class="section-head">
+    <div class="chip">Session 3</div>
+    <h2>Connectors</h2>
+    <p class="muted">75 minutes &middot; MCP, the plug between Claude and your live systems</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> Shopify, Drive and Gmail connected, and one report rebuilt on real numbers instead of a pasted file</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>Sessions 1 and 2 done, both reports sitting in `my-work/`</li><li>Admin access to your Shopify store, or whatever store platform you use</li><li>The Google account your business actually runs on</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Connect a first-party connector</li><li>Connect your store</li><li>Verify the connection points at the right place</li><li>Pull something real</li><li>Re-run Voice of Customer on live data</li><li>Point it at your nominated SKUs</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>Google Drive shows as connected</li><li>Gmail shows as connected</li><li>Your store is connected, and you verified the store name out loud</li><li>You pulled live product data and sanity-checked it against what you know</li><li>`my-work/voice-of-customer/` has a second, newer report that cites live data</li><li>You can name one thing the live report found that the file-based one could not</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (5)</summary>
+    <ul class=""><li>The connector signs in but returns nothing.</li><li>&quot;I am connected to a store&quot; but it is the wrong one.</li><li>Shopify will not connect at all.</li><li>It keeps asking permission for the same thing.</li><li>Gmail returns thousands of threads and the run stalls.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-3-mcps.md">Open the full session file &rarr;</a></p>
+</section><section class="flow" id="s4">
+  <div class="section-head">
+    <div class="chip">Session 4</div>
+    <h2>Content Lead</h2>
+    <p class="muted">90 minutes &middot; Subagents, teammates that run in their own context</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> a 30 day calendar, drafted content pieces, first marketplace listings, and every safety flag they raised</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>`CLAUDE.md` filled, voice test passed</li><li>A Market Analyst report and a Voice of Customer report in `my-work/`</li><li>Ideally the live-data VoC report from Session 3</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Look at the subagent definition</li><li>Start it</li><li>Pick your scope</li><li>Let it work</li><li>Read the index first, never the pieces</li><li>Work the safety flags</li><li>Ship one thing</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>`my-work/content-lead/&lt;date&gt;-calendar.md` covers 30 days, each row naming the theme it serves and the source it traces to</li><li>`my-work/content-lead/pieces/` has drafts in it</li><li>`my-work/content-lead/marketplace/` has listings</li><li>`my-work/content-lead/&lt;date&gt;-index.md` exists and you read it before anything else</li><li>You sorted every safety flag into fix, decide or dismiss</li><li>One piece is scheduled or posted</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (5)</summary>
+    <ul class=""><li>It stopped and said a report is missing.</li><li>Every piece sounds slightly generic.</li><li>It skipped a product entirely.</li><li>The calendar has placeholder dates in it.</li><li>It produced twenty pieces and I wanted five.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-4-content-lead.md">Open the full session file &rarr;</a></p>
+</section><section class="flow" id="s5">
+  <div class="section-head">
+    <div class="chip">Session 5</div>
+    <h2>Day 1 Integration</h2>
+    <p class="muted">45 minutes &middot; synthesis across teammates, a first taste of the Captain pattern</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> one cross-cutting read of everything Day 1 produced, and one thing chosen to ship Monday</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>`CLAUDE.md` filled</li><li>Market Analyst report in `my-work/`</li><li>Voice of Customer report in `my-work/`</li><li>Content Lead calendar, pieces and index in `my-work/`</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Take stock, out loud</li><li>Run the day one synthesis</li><li>Judge the answer hard</li><li>Chase the disagreements</li><li>Pick Monday&#x27;s ship</li><li>Close the cheapest data gap</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>`my-work/captain/&lt;date&gt;-day-1-summary.md` exists</li><li>It names one cross-cutting finding with the files that support it</li><li>It lists at least one disagreement between teammates or with `CLAUDE.md`</li><li>One thing is named for Monday, with a date</li><li>One data gap is named, and you know how to close it</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (3)</summary>
+    <ul class=""><li>The synthesis is bland.</li><li>It gave me five recommendations.</li><li>It found no disagreements.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-5-integration.md">Open the full session file &rarr;</a></p>
+</section><section class="flow" id="s6">
+  <div class="section-head">
+    <div class="chip">Session 6</div>
+    <h2>Performance Marketer</h2>
+    <p class="muted">100 minutes &middot; parallel dispatch, one parent subagent fanning out to several children</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> ads across two angles, a creative brief a designer could act on today, and at least one real rendered image</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>`CLAUDE.md` filled, with the never-list and the claim wall in Section 7</li><li>Market Analyst and Voice of Customer reports in `my-work/`</li><li>The Content Lead index from Session 4, so your ads do not duplicate your organic plan</li><li>`brand-brain/ads/ad-copy-bank.md` filled with ads that actually ran, if you have any</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Give it something to learn from</li><li>Run it</li><li>Read the winners pattern first</li><li>Read the index, then two ads</li><li>Work the flags</li><li>Turn one angle into a creative brief</li><li>Render it</li><li>Ship one ad</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>`my-work/performance-marketer/&lt;date&gt;-winners-pattern.md` exists and describes your real ads</li><li>At least two angle folders, each with `meta.md`, `google.md` and `creative-brief.md`</li><li>An index naming the strongest ad and every flag</li><li>One creative brief with an image prompt and a negative prompt</li><li>One image rendered, or one prompt saved ready to paste</li><li>Every safety flag triaged</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (5)</summary>
+    <ul class=""><li>It says there is no ad history.</li><li>The ads are good but they all sound the same.</li><li>A rendered image has garbled text in it.</li><li>Parallel run stalled halfway.</li><li>It dropped a word my customer actually used.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-6-performance-marketer.md">Open the full session file &rarr;</a></p>
+</section><section class="flow" id="s7">
+  <div class="section-head">
+    <div class="chip">Session 7</div>
+    <h2>Storefront and Marketplace</h2>
+    <p class="muted">90 minutes &middot; live data iteration, read the numbers, find the gap, rewrite, save as a draft</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> two product pages rewritten with a before and after, CRO observations tied to evidence, and marketplace listings</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>Store connected from Session 3, or conversion data you can paste</li><li>Voice of Customer report in `my-work/`</li><li>Market Analyst report in `my-work/`</li><li>`brand-brain/nominated-skus.md` filled, if you want to choose the pages yourself</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Rewrite two product pages</li><li>Read the gap analysis before the rewrite</li><li>Read the CRO observations</li><li>Rewrite the marketplace listings</li><li>Handle the compliance fields properly</li><li>Push one page as a draft</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>`my-work/storefront-specialist/` has a before, a gap and an after for two pages</li><li>`&lt;date&gt;-cro-observations.md` has five observations, each with real evidence</li><li>`my-work/marketplace-editor/` has listings for at least one product on both platforms</li><li>Every compliance placeholder is either filled with a real value or marked as blocking</li><li>Exactly one page is live or in draft, and you wrote down the date you shipped it</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (4)</summary>
+    <ul class=""><li>It picked pages I do not care about.</li><li>It could not read my live page.</li><li>The listing is for a platform I am not on.</li><li>It refused to tick a gluten-free box.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-7-storefront-marketplace.md">Open the full session file &rarr;</a></p>
+</section><section class="flow" id="s8">
+  <div class="section-head">
+    <div class="chip">Session 8</div>
+    <h2>Ops and Retention</h2>
+    <p class="muted">90 minutes &middot; triggers, when X happens do Y</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> SOPs with triggers precise enough to actually fire, a vendor template, WhatsApp and email flows, and two customer segments</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>`CLAUDE.md` filled, including the anti-positioning in Section 3</li><li>Voice of Customer report in `my-work/`, ideally the live-data one</li><li>Store connected, if you want real returns and repeat data</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Write the operations down</li><li>Check the triggers can actually fire</li><li>Read the escalation point</li><li>Build the retention flows</li><li>Read the WhatsApp templates out loud</li><li>Check the compliance section on every template</li><li>Notice what your anti-positioning rules out</li><li>Ship one moment</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>`my-work/ops-manager/sops/` has two SOPs, each with a trigger someone else could evaluate</li><li>`my-work/ops-manager/vendor-kit/` has a vendor template with placeholders, not invented names</li><li>`my-work/retention-manager/whatsapp/` and `/email/` have templates</li><li>Every template has a filled &quot;when not to send&quot; section</li><li>`my-work/retention-manager/segments/` has two segments written as filters</li><li>One retention moment is live, with the date you switched it on</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (4)</summary>
+    <ul class=""><li>The SOPs are for problems I do not have.</li><li>A segment has no size in it.</li><li>The replenishment timing looks wrong.</li><li>A template feels pushy.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-8-ops-retention.md">Open the full session file &rarr;</a></p>
+</section><section class="flow" id="s9">
+  <div class="section-head">
+    <div class="chip">Session 9</div>
+    <h2>Growth Analyst</h2>
+    <p class="muted">90 minutes &middot; Routines, scheduled runs inside the desktop app</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> your first weekly brief, a dashboard that opens on a double click, and a routine that produces it again every Monday without you asking</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>`brand-brain/unit-economics.md` filled with your real numbers, however rough</li><li>Store connected from Session 3, and verified as your store</li><li>Ad accounts connected if you have them</li><li>Voice of Customer and Market Analyst reports in `my-work/`</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Run the brief</li><li>Open the dashboard</li><li>Read the alarm, and only the alarm</li><li>Check what it says is estimated</li><li>Do the action</li><li>Schedule it</li><li>Know the limits of a local routine</li><li>Test it before you trust it</li><li>Save what you set up</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>`my-work/growth-analyst/` has a brief, an index, `data/numbers.json` and `dashboard.html`</li><li>The dashboard opens on a double click, with no server</li><li>You can state the one alarm in a sentence</li><li>The action is done or in your calendar</li><li>A routine exists, and you watched it fire once</li><li>`schedule-config.md` records what you set up</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (5)</summary>
+    <ul class=""><li>Every number says &quot;no data&quot;.</li><li>The brief and my own numbers disagree.</li><li>It refused to compute CAC.</li><li>The routine did not fire.</li><li>The routine fired but sent me four pages.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-9-growth-analyst.md">Open the full session file &rarr;</a></p>
+</section><section class="flow" id="s10">
+  <div class="section-head">
+    <div class="chip">Session 10</div>
+    <h2>Capstone</h2>
+    <p class="muted">75 minutes &middot; the Captain pattern, one subagent reading across every other teammate</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> a 90 day operating roadmap, a standing schedule, and one recommendation no single teammate could have made</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>Every session from 1 to 9 has produced at least one file in `my-work/`</li><li>`CLAUDE.md` is current, ideally refreshed since Session 2</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Check the chain is alive</li><li>Run the Captain</li><li>Read the summary first</li><li>Judge the cross-cutting recommendation</li><li>Work the roadmap</li><li>Settle the standing schedule</li><li>Read what it could not synthesise</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>`my-work/captain/&lt;date&gt;-90-day-roadmap.md` exists</li><li>`my-work/captain/&lt;date&gt;-summary.md` exists and you read it first</li><li>The cross-cutting recommendation cites at least three teammates</li><li>Week 1 has three to five items, each with an owner and a cost of inaction</li><li>Your standing schedule is set up, tested, and no more than three jobs</li><li>You know which data gap to close first</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (4)</summary>
+    <ul class=""><li>The recommendation is something one teammate already told me.</li><li>It says my chain is stale.</li><li>It ran out of room partway through.</li><li>It wired nothing after I asked it to.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-10-capstone.md">Open the full session file &rarr;</a></p>
+</section><section class="flow" id="s11">
+  <div class="section-head">
+    <div class="chip">Session 11</div>
+    <h2>Influencer Scout (add-on)</h2>
+    <p class="muted">60 minutes &middot; none new, this is a skill applied to a job you would otherwise pay an agency for</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> a shortlist of creators with red-flag checks, first-touch outreach for each, and a counter-offer script</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>`CLAUDE.md` filled, especially Section 5, your customer, and Section 3, your anti-positioning</li><li>Voice of Customer report in `my-work/`, so the outreach can speak to real themes</li><li>A creator pool to filter, see step 1</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Get a creator pool</li><li>Run it</li><li>Read the red flags before the names</li><li>Sanity-check the rates</li><li>Read the outreach in your own voice</li><li>Learn the counter-offer script</li><li>Send three</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>`my-work/influencer-scout/&lt;date&gt;-shortlist.md` exists with reasons per creator</li><li>Every creator carries a red-flag check, not just a follower count</li><li>Outreach reads in your voice and states the ask in the first three lines</li><li>You read the negotiation playbook before sending</li><li>Three messages sent</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (3)</summary>
+    <ul class=""><li>Every creator it picked is too big for my budget.</li><li>The outreach sounds like a brand.</li><li>The pool has no engagement data.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-11-influencer-scout.md">Open the full session file &rarr;</a></p>
+</section><section class="flow" id="s12">
+  <div class="section-head">
+    <div class="chip">Session 12</div>
+    <h2>Telegram Bot (add-on)</h2>
+    <p class="muted">45 minutes &middot; none new, this is your existing skills reached from a phone</p>
+  </div>
+  <div class="callout"><p><strong>You walk out with:</strong> a Telegram bot that answers in your brand voice, from a DM</p></div>
+  <div class="cards cards-3">
+    <div class="card"><h4>Before you start</h4><ul class=""><li>Session 2 done, and `/write-in-brand-voice` working in the desktop app</li><li>`CLAUDE.md` filled</li><li>Node.js installed. Check at [nodejs.org](https://nodejs.org), take the LTS version.</li><li>The Claude Code CLI installed and signed in. Follow [code.claude.com/docs](https://code.claude.com/docs).</li><li>A Telegram account</li></ul></div>
+    <div class="card"><h4>The flow</h4><ul class=""><li>Create the bot</li><li>Store the token safely</li><li>Install and start</li><li>Talk to it</li><li>Understand what just happened</li><li>Know the limits</li></ul></div>
+    <div class="card"><h4>Check it worked</h4><ul class=""><li>The bot replies to a plain English message</li><li>The reply sounds like your brand rather than generic</li><li>Calling a skill by name works</li><li>`.env` holds the token and is confirmed gitignored</li><li>You can explain why every new skill appears on your phone for free</li></ul></div>
+  </div>
+  <details>
+    <summary class="tiny">What usually goes wrong (5)</summary>
+    <ul class=""><li>The bot does not reply at all.</li><li>It replies but sounds generic.</li><li>&quot;claude: command not found&quot;.</li><li>Replies are slow.</li><li>Formatting looks broken in Telegram.</li></ul>
+  </details>
+  <p class="tiny"><a href="../session-12-telegram.md">Open the full session file &rarr;</a></p>
+</section>
+
+<footer>
+  <p class="tiny muted">D2C Insider AI Bootcamp. If a step here does not match the session file, the session file is right.</p>
+</footer>
+
+</div>
+</body>
+</html>

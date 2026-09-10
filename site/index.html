@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D2C Insider AI Bootcamp, Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #6366F1;
+  --primary-hover: #4F46E5;
+  --neutral: #9C9C9C;
+  --bg: #FAFAFA;
+  --surface: #FFFFFF;
+  --text: #0A0A0A;
+  --text-2: #6B6B6B;
+  --border: #E8E8EC;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --display: "General Sans", system-ui, sans-serif;
+  --body: "DM Sans", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-hover); text-decoration: underline; }
+code, pre, .mono { font-family: var(--mono); font-size: 13px; }
+pre {
+  background: #0A0A0A;
+  color: #E8E8EC;
+  padding: 16px 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.inline-code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: #F1F1F4;
+  color: #0A0A0A;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0;
+}
+h1 { font-size: 60px; line-height: 1.05; letter-spacing: -0.04em; }
+h2 { font-size: 32px; line-height: 1.15; }
+h3 { font-size: 22px; line-height: 1.25; letter-spacing: -0.02em; }
+h4 { font-size: 17px; font-weight: 600; }
+p { margin: 0; }
+.muted { color: var(--text-2); }
+.tiny { font-size: 13px; color: var(--text-2); }
+
+/* Nav */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  height: 56px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+nav .inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+nav .brand {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  display: flex; align-items: center; gap: 8px;
+}
+nav .brand .dot {
+  width: 8px; height: 8px; border-radius: 9999px;
+  background: var(--primary);
+  display: inline-block;
+}
+nav ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; gap: 4px;
+}
+nav ul a {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+nav ul a:hover { background: #F1F1F4; text-decoration: none; }
+@media (max-width: 820px) {
+  nav ul { display: none; }
+}
+
+/* Container */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+.section-head { margin-bottom: 40px; max-width: 720px; }
+.section-head .overline {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.section-head p { color: var(--text-2); font-size: 16px; margin-top: 12px; }
+
+/* Hero */
+#hero { padding: 80px 0 64px; border-bottom: 1px solid var(--border); }
+#hero .overline {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+#hero h1 { max-width: 880px; }
+#hero .lead {
+  max-width: 640px;
+  font-size: 18px;
+  color: var(--text-2);
+  margin-top: 20px;
+}
+.quick-links {
+  margin-top: 36px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+}
+.chip:hover { border-color: var(--primary); color: var(--primary); text-decoration: none; }
+.chip .num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-2);
+}
+
+/* Cards */
+.cards { display: grid; gap: 20px; }
+.cards-2 { grid-template-columns: repeat(2, 1fr); }
+.cards-3 { grid-template-columns: repeat(3, 1fr); }
+.cards-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 920px) { .cards-3, .cards-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .cards-2, .cards-3, .cards-4 { grid-template-columns: 1fr; } }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  border-color: #D6D6DC;
+}
+.card .meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.card .meta .pill {
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: #F1F1F4;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.card .meta .pill.day-1 { background: #EEF2FF; color: var(--primary-hover); }
+.card .meta .pill.day-2 { background: #ECFDF5; color: var(--success); }
+.card .meta .pill.addon { background: #FEF3C7; color: #92400E; }
+.card h3 { margin-bottom: 8px; }
+.card .desc { color: var(--text-2); font-size: 14px; }
+.card .footer {
+  margin-top: 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 13px;
+}
+.card .footer .file {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-2);
+}
+.card .footer a {
+  font-weight: 500;
+}
+
+/* Arc */
+.arc {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+.arc-day {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+}
+.arc-day h3 {
+  display: flex; align-items: baseline; gap: 12px;
+  margin-bottom: 6px;
+}
+.arc-day h3 .tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+.arc-day .blurb { color: var(--text-2); margin-bottom: 24px; max-width: 560px; }
+
+.flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+@media (max-width: 920px) { .flow { grid-template-columns: 1fr; } }
+.flow .step {
+  position: relative;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #FAFAFA;
+}
+.flow .step .stage {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.flow .step .title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.flow .step .sub {
+  font-size: 12px;
+  color: var(--text-2);
+}
+.flow .step + .step::before {
+  content: "›";
+  position: absolute;
+  left: -10px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--neutral);
+  font-size: 16px;
+}
+@media (max-width: 920px) {
+  .flow .step + .step::before { display: none; }
+}
+
+/* Sessions list */
+.session-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 920px) { .session-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .session-grid { grid-template-columns: 1fr; } }
+.session-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+  text-decoration: none;
+  color: inherit;
+}
+.session-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  border-color: #D6D6DC;
+  text-decoration: none;
+}
+.session-card .num {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-2);
+}
+.session-card h4 { font-size: 18px; letter-spacing: -0.02em; font-family: var(--display); font-weight: 600; }
+.session-card .outcome { color: var(--text-2); font-size: 14px; flex: 1; }
+.session-card .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.session-card .day {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  background: #EEF2FF;
+  color: var(--primary-hover);
+  font-weight: 600;
+}
+.session-card .day.day-2 { background: #ECFDF5; color: var(--success); }
+.session-card .day.addon { background: #FEF3C7; color: #92400E; }
+.session-card .day.setup { background: #F1F1F4; color: var(--text-2); }
+.session-card .opens {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-2);
+}
+
+/* Teammate roster */
+.teammate-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 920px) { .teammate-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .teammate-grid { grid-template-columns: 1fr; } }
+.teammate {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.teammate .head {
+  display: flex; align-items: center; gap: 12px;
+}
+.teammate .avatar {
+  width: 36px; height: 36px;
+  border-radius: 9999px;
+  background: #EEF2FF;
+  color: var(--primary-hover);
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 12px;
+}
+.teammate h4 { font-family: var(--display); font-weight: 600; font-size: 18px; letter-spacing: -0.02em; }
+.teammate .role { font-size: 13px; color: var(--text-2); }
+.teammate .owns { font-size: 14px; color: var(--text); }
+.teammate .rows {
+  display: grid; gap: 6px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: auto;
+}
+.teammate .row { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; }
+.teammate .row .k { color: var(--text-2); }
+.teammate .row .v { font-family: var(--mono); color: var(--text); text-align: right; }
+
+/* Catalog table */
+.catalog {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.catalog .row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr 1.4fr 1fr;
+  gap: 16px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  align-items: center;
+}
+.catalog .row:first-child { border-top: none; }
+.catalog .row.head {
+  background: #FAFAFA;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-2);
+  font-weight: 500;
+}
+.catalog .row .name { font-weight: 500; }
+.catalog .row .path { font-family: var(--mono); font-size: 12px; color: var(--text-2); overflow-wrap: anywhere; }
+.catalog .row .where { color: var(--text-2); font-size: 13px; }
+.catalog .row .kind {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  background: #F1F1F4;
+  color: var(--text-2);
+  display: inline-block;
+  width: max-content;
+  font-weight: 500;
+}
+.catalog .row .kind.skill { background: #EEF2FF; color: var(--primary-hover); }
+.catalog .row .kind.agent { background: #ECFDF5; color: var(--success); }
+.catalog .row .kind.command { background: #FEF3C7; color: #92400E; }
+@media (max-width: 820px) {
+  .catalog .row { grid-template-columns: 1fr; gap: 4px; }
+  .catalog .row.head { display: none; }
+}
+
+/* Glossary */
+.glossary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (max-width: 620px) { .glossary-grid { grid-template-columns: 1fr; } }
+.term {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+}
+.term h4 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.term .what {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--primary-hover);
+  background: #EEF2FF;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.term p { font-size: 14px; color: var(--text-2); margin-bottom: 8px; }
+.term .where { font-size: 13px; color: var(--text); }
+.term .where b { font-weight: 600; }
+
+/* Repo tour */
+.tree {
+  background: #0A0A0A;
+  color: #E8E8EC;
+  border-radius: 12px;
+  padding: 28px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-x: auto;
+}
+.tree .dim { color: #6B6B6B; }
+.tree .note { color: #9CA3AF; font-style: italic; }
+.tree .label { color: #C7D2FE; }
+.tree .file { color: #FDE68A; }
+
+/* Resources block */
+.res-table {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.res-table .row {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.4fr;
+  gap: 16px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+.res-table .row:first-child { border-top: none; }
+.res-table .row.head {
+  background: #FAFAFA;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-2);
+  font-weight: 500;
+}
+.res-table .name { font-weight: 600; }
+.res-table .feeds { color: var(--text-2); font-size: 13px; }
+.res-table .note { color: var(--text-2); font-size: 13px; }
+@media (max-width: 820px) {
+  .res-table .row { grid-template-columns: 1fr; gap: 4px; }
+  .res-table .row.head { display: none; }
+}
+
+footer {
+  padding: 48px 0 80px;
+  font-size: 13px;
+  color: var(--text-2);
+  text-align: center;
+}
+footer a { color: var(--text-2); text-decoration: underline; }
+
+/* Anchor offset for sticky nav */
+section[id] { scroll-margin-top: 72px; }
+
+.callout {
+  background: #EEF2FF;
+  border: 1px solid #C7D2FE;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--text);
+}
+.callout b { font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="chip">Reference</div>
+  <h1>D2C Insider AI Bootcamp</h1>
+  <p class="lede">Ten AI teammates for your brand, built over one weekend in the Claude Code desktop app. This page is the map. Open it whenever you are lost in the repo.</p>
+  <div class="quick-links">
+    <a href="../student-handbook.md">Student handbook</a>
+    <a href="../session-0-setup.md">Start at Session 0</a>
+    <a href="sessions.html">Per-session detail</a>
+    <a href="../examples/README.md">Worked examples</a>
+    <a href="../resources.md">Resources</a>
+  </div>
+</header>
+
+<section>
+  <div class="section-head"><h2>How this runs</h2></div>
+  <div class="callout">
+    <p><strong>Everything happens in the Claude Code desktop app</strong>, the Mac or Windows application. You will not open a terminal, apart from two lines of <code>git clone</code> in Session 0, and there is a ZIP fallback for that.</p>
+    <p>Three things you do over and over. Type <code>/</code> to see your roster. Watch the <strong>Tasks pane</strong> when a subagent runs. Click a file path in the chat to read what a teammate wrote.</p>
+  </div>
+  <div class="cards cards-4">
+    <div class="card"><h4>Pro or Max plan</h4><p class="tiny">Claude Code does not run on the free tier.</p></div>
+    <div class="card"><h4>Code tab</h4><p class="tiny">Not Chat, not Cowork. Skills only appear in Code.</p></div>
+    <div class="card"><h4>Trust the folder</h4><p class="tiny">Untrusted folders do not load skills, so your roster stays empty.</p></div>
+    <div class="card"><h4>Accept edits mode</h4><p class="tiny">Teammates write a lot of files. Manual mode will eat your session.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2>Day 1, Intelligence and Content</h2><p class="muted">Four primitives, in order. Each one unlocks a teammate.</p></div>
+  <div class="session-grid">
+<a class="session-card" href="../session-0-setup.md">
+  <div class="chip">Session 0</div>
+  <h3>Setup</h3>
+  <p class="tiny muted">30 minutes, do it before Saturday if you can</p>
+  <p>the Claude Code desktop app installed, this repo open inside it, and one successful run</p>
+</a>
+<a class="session-card" href="../session-1-brand-brain.md">
+  <div class="chip">Session 1</div>
+  <h3>Brand Brain</h3>
+  <p class="tiny muted">75 minutes &middot; `CLAUDE.md`, a persistent project profile</p>
+  <p>`CLAUDE.md` at the repo root, filled in your voice, with a voice test scored 4 or better</p>
+</a>
+<a class="session-card" href="../session-2-skills.md">
+  <div class="chip">Session 2</div>
+  <h3>Skills</h3>
+  <p class="tiny muted">90 minutes &middot; Skills, reusable playbooks Claude loads on its own</p>
+  <p>two real reports in `my-work/`, and a skill in your own handwriting</p>
+</a>
+<a class="session-card" href="../session-3-mcps.md">
+  <div class="chip">Session 3</div>
+  <h3>Connectors</h3>
+  <p class="tiny muted">75 minutes &middot; MCP, the plug between Claude and your live systems</p>
+  <p>Shopify, Drive and Gmail connected, and one report rebuilt on real numbers instead of a pasted file</p>
+</a>
+<a class="session-card" href="../session-4-content-lead.md">
+  <div class="chip">Session 4</div>
+  <h3>Content Lead</h3>
+  <p class="tiny muted">90 minutes &middot; Subagents, teammates that run in their own context</p>
+  <p>a 30 day calendar, drafted content pieces, first marketplace listings, and every safety flag they raised</p>
+</a>
+<a class="session-card" href="../session-5-integration.md">
+  <div class="chip">Session 5</div>
+  <h3>Day 1 Integration</h3>
+  <p class="tiny muted">45 minutes &middot; synthesis across teammates, a first taste of the Captain pattern</p>
+  <p>one cross-cutting read of everything Day 1 produced, and one thing chosen to ship Monday</p>
+</a>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2>Day 2, Growth and Operations</h2><p class="muted">The same four ideas applied to money and operations, plus scheduling.</p></div>
+  <div class="session-grid">
+<a class="session-card" href="../session-6-performance-marketer.md">
+  <div class="chip">Session 6</div>
+  <h3>Performance Marketer</h3>
+  <p class="tiny muted">100 minutes &middot; parallel dispatch, one parent subagent fanning out to several children</p>
+  <p>ads across two angles, a creative brief a designer could act on today, and at least one real rendered image</p>
+</a>
+<a class="session-card" href="../session-7-storefront-marketplace.md">
+  <div class="chip">Session 7</div>
+  <h3>Storefront and Marketplace</h3>
+  <p class="tiny muted">90 minutes &middot; live data iteration, read the numbers, find the gap, rewrite, save as a draft</p>
+  <p>two product pages rewritten with a before and after, CRO observations tied to evidence, and marketplace listings</p>
+</a>
+<a class="session-card" href="../session-8-ops-retention.md">
+  <div class="chip">Session 8</div>
+  <h3>Ops and Retention</h3>
+  <p class="tiny muted">90 minutes &middot; triggers, when X happens do Y</p>
+  <p>SOPs with triggers precise enough to actually fire, a vendor template, WhatsApp and email flows, and two customer segments</p>
+</a>
+<a class="session-card" href="../session-9-growth-analyst.md">
+  <div class="chip">Session 9</div>
+  <h3>Growth Analyst</h3>
+  <p class="tiny muted">90 minutes &middot; Routines, scheduled runs inside the desktop app</p>
+  <p>your first weekly brief, a dashboard that opens on a double click, and a routine that produces it again every Monday without you asking</p>
+</a>
+<a class="session-card" href="../session-10-capstone.md">
+  <div class="chip">Session 10</div>
+  <h3>Capstone</h3>
+  <p class="tiny muted">75 minutes &middot; the Captain pattern, one subagent reading across every other teammate</p>
+  <p>a 90 day operating roadmap, a standing schedule, and one recommendation no single teammate could have made</p>
+</a>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2>Add-ons</h2><p class="muted">Outside the core ten. Run them when the brand needs the muscle.</p></div>
+  <div class="session-grid">
+<a class="session-card" href="../session-11-influencer-scout.md">
+  <div class="chip">Session 11</div>
+  <h3>Influencer Scout (add-on)</h3>
+  <p class="tiny muted">60 minutes &middot; none new, this is a skill applied to a job you would otherwise pay an agency for</p>
+  <p>a shortlist of creators with red-flag checks, first-touch outreach for each, and a counter-offer script</p>
+</a>
+<a class="session-card" href="../session-12-telegram.md">
+  <div class="chip">Session 12</div>
+  <h3>Telegram Bot (add-on)</h3>
+  <p class="tiny muted">45 minutes &middot; none new, this is your existing skills reached from a phone</p>
+  <p>a Telegram bot that answers in your brand voice, from a DM</p>
+</a>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2>The roster</h2></div>
+  <table class="res-table">
+    <thead><tr><th>#</th><th>Teammate</th><th>Primitive</th><th>Session</th><th>Owns</th></tr></thead>
+    <tbody>
+<tr><td class="mono">01</td><td><strong>Brand Brain</strong></td><td><code>/brand-brain</code> or <code>/interview-me</code></td><td>1</td><td>Brand DNA, voice rules, the compliance wall. Every other teammate reads its file first.</td></tr>
+<tr><td class="mono">02</td><td><strong>Market Analyst</strong></td><td><code>/market-analyst</code></td><td>2</td><td>Competitor intel across pricing, positioning, content and paid presence.</td></tr>
+<tr><td class="mono">03</td><td><strong>Voice of Customer</strong></td><td><code>/voice-of-customer</code></td><td>2, 3</td><td>Themes with real counts, sentiment cuts, persona cards built from customers actually in your data.</td></tr>
+<tr><td class="mono">04</td><td><strong>Content Lead</strong></td><td><code>content-lead</code> agent</td><td>4</td><td>30 day calendar, content pieces, first marketplace listings, safety pass on every one.</td></tr>
+<tr><td class="mono">05</td><td><strong>Performance Marketer</strong></td><td><code>performance-marketer</code> agent</td><td>6</td><td>Ad angles fanned out in parallel, variants, creative briefs.</td></tr>
+<tr><td class="mono">06</td><td><strong>Storefront Specialist</strong></td><td><code>/pdp-writer</code></td><td>7</td><td>Product pages rewritten against live conversion data, with a before and after.</td></tr>
+<tr><td class="mono">07</td><td><strong>Marketplace Editor</strong></td><td><code>/marketplace-editor</code></td><td>7</td><td>Amazon A+ blocks and Flipkart listings, written for a faster and more sceptical reader.</td></tr>
+<tr><td class="mono">08</td><td><strong>Ops Manager</strong></td><td><code>/ops-manager</code></td><td>8</td><td>SOPs whose triggers are precise enough to actually fire, plus the vendor kit.</td></tr>
+<tr><td class="mono">09</td><td><strong>Retention Manager</strong></td><td><code>/retention-manager</code></td><td>8</td><td>WhatsApp and email flows, customer segments written as runnable filters.</td></tr>
+<tr><td class="mono">10</td><td><strong>Growth Analyst</strong></td><td><code>/growth-analyst</code></td><td>9</td><td>The weekly brief, the one alarm, unit economics, a dashboard that opens on a double click.</td></tr>
+<tr><td class="mono">&mdash;</td><td><strong>The Captain</strong></td><td><code>captain</code> agent</td><td>10</td><td>Reads every teammate's index and nothing else. The 90 day roadmap.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="section-head"><h2>Skills catalog</h2><p class="muted">12 skills in <code>.claude/skills/</code>. Type <code>/</code> in the app to see them all.</p></div>
+  <table class="res-table">
+    <thead><tr><th>Skill</th><th>What it does</th></tr></thead>
+    <tbody>
+<tr><td><code>/brand-brain</code></td><td>Build CLAUDE.md conversationally — walks through 8 brand topics, ingesting a file where you have one and interviewing you live where you don&#x27;t.</td></tr>
+<tr><td><code>/creative-brief</code></td><td>Generate a creative brief for a designer or an AI image tool, given a campaign idea or content angle.</td></tr>
+<tr><td><code>/fal-image-gen</code></td><td>Generate real images and short videos via fal.ai.</td></tr>
+<tr><td><code>/growth-analyst</code></td><td>Produce the weekly Growth Dashboard for a D2C founder.</td></tr>
+<tr><td><code>/influencer-scout</code></td><td>Take a brand&#x27;s CLAUDE.md, filter the Modash-shape creator pool against the brand&#x27;s category and audience, surface a shortlist of plausible creators with red-flag checks, and draft first-touch outreach plus a counter-offer script for each shortlisted creator.</td></tr>
+<tr><td><code>/interview-me</code></td><td>Build CLAUDE.md by interview.</td></tr>
+<tr><td><code>/market-analyst</code></td><td>Generate competitor intelligence reports for D2C brands.</td></tr>
+<tr><td><code>/marketplace-editor</code></td><td>Rewrite Amazon A+ content blocks and Flipkart product listings using marketplace conversion data, customer reviews from VoC, and competitive context.</td></tr>
+<tr><td><code>/ops-manager</code></td><td>Produce SOPs, vendor communication templates, returns analysis and escalation playbooks for a D2C brand.</td></tr>
+<tr><td><code>/pdp-writer</code></td><td>Rewrite product detail pages (PDPs) and landing pages using live store conversion data, customer themes from Voice of Customer, and competitive context from Market Analyst.</td></tr>
+<tr><td><code>/retention-manager</code></td><td>Produce WhatsApp retention templates, email lifecycle flows, customer segments and re-engagement playbooks for a D2C brand.</td></tr>
+<tr><td><code>/voice-of-customer</code></td><td>Mine customer reviews, support tickets, WhatsApp chats and CRM notes for themes, sentiment patterns and persona signals.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="section-head"><h2>Subagents</h2><p class="muted">4 agents in <code>.claude/agents/</code>. Trigger with a plain sentence, or <code>@name</code>.</p></div>
+  <table class="res-table">
+    <thead><tr><th>Agent</th><th>What it does</th></tr></thead>
+    <tbody>
+<tr><td><code>captain</code></td><td>Use this subagent to synthesise across every teammate and produce one cross-cutting recommendation plus the 90-day operating roadmap.</td></tr>
+<tr><td><code>content-lead</code></td><td>Use this subagent when the founder needs a content calendar, a batch of social posts, marketplace listings (Amazon A+ or Flipkart), email or newsletter drafts, or any multi-piece content production for the brand.</td></tr>
+<tr><td><code>image-ad-strategist</code></td><td>Use this subagent when the founder wants thumb-stopping IMAGE AD CONCEPTS for a specific SKU or campaign — not copy variations (that is the Performance Marketer) and not a calendar triage (that is the Content Visual Strategist), but 3 fundamentally different strategic concepts, each hardened through a recursive self-critique loop before it ships.</td></tr>
+<tr><td><code>performance-marketer</code></td><td>Use this subagent when the founder needs ad copy variations for Meta or Google, a creative brief for a designer or an AI image tool, or a batch of paid-channel content tied to a specific campaign or angle.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="section-head"><h2>The two worked examples</h2><p class="muted">Same framework, two very different category shapes. That contrast is the point.</p></div>
+  <div class="cards cards-2">
+    <div class="card">
+      <h4>Little Lab</h4>
+      <p class="tiny muted">Baby skincare &middot; CDSCO &middot; Amazon and Flipkart heavy &middot; 79 files</p>
+      <p>A trust category with a nervous buyer. Paediatrician-led positioning, ingredient transparency.</p>
+      <p class="tiny"><a href="../examples/little-lab/">Open</a></p>
+    </div>
+    <div class="card">
+      <h4>The Paan Legacy</h4>
+      <p class="tiny muted">Gourmet paan &middot; FSSAI &middot; Own site, quick commerce, franchise, corporate &middot; 162 files</p>
+      <p>A ritual category with a lapsed habit. Carries <strong>two dated runs four months apart</strong>, so you can see what compounding actually looks like.</p>
+      <p class="tiny"><a href="../examples/the-paan-legacy/">Open</a></p>
+    </div>
+  </div>
+  <div class="callout">
+    <p><strong>Read <code>brand-brain/</code> before <code>my-work/</code>.</strong> What a teammate was given is more instructive than what it wrote.</p>
+    <p><strong>The flags were left in on purpose.</strong> Missing licence numbers, sample sizes called too small, a skill refusing to tick a gluten-free box. An example run with no flags would teach you the wrong thing about what good output looks like.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2>Repo tour</h2></div>
+  <pre class="tree">d2c-insider-ai-bootcamp/
+├── student-handbook.md        the master map, read first
+├── session-0-setup.md ... session-12-telegram.md
+├── CLAUDE.template.md         the shape Session 1 fills
+├── resources.md               what to add after the bootcamp
+├── templates/brand-brain/     copy to brand-brain/ and fill, this is the pre-work
+├── .claude/
+│   ├── skills/                12 teammates, auto-loaded
+│   └── agents/                4 subagents
+├── references/                deep dives, one folder per session
+├── examples/                  two brands, fully worked
+├── telegram-bot/              the Session 12 add-on
+└── site/                      you are here
+
+created as you work, never committed:
+  brand-brain/                 your inputs
+  my-work/                     your teammates' output</pre>
+</section>
+
+<section>
+  <div class="section-head"><h2>Glossary</h2></div>
+  <div class="glossary-grid">
+<div class="term"><h4>CLAUDE.md</h4><p>A file at your project root that Claude reads before every single thing it does, without being asked. Your brand, written down once.</p></div>
+<div class="term"><h4>Skill</h4><p>A folder with a SKILL.md in it. A written job description. Claude loads it when what you asked matches its description, or you call it with a slash.</p></div>
+<div class="term"><h4>Subagent</h4><p>A teammate that runs in its own context and hands back a summary. Used for jobs too big to fit in your session. You brief it once and it goes.</p></div>
+<div class="term"><h4>MCP</h4><p>The standard that lets Claude talk to a live system. A connector is one already packaged, with a sign-in built in.</p></div>
+<div class="term"><h4>Connector</h4><p>A first-party MCP server you add from the + menu. Google Drive, Gmail, GitHub and others. Click, authenticate, done.</p></div>
+<div class="term"><h4>Routine</h4><p>A scheduled run inside the desktop app, in the Code tab sidebar. Runs on your machine, so the app must be open and the computer awake.</p></div>
+<div class="term"><h4>Index file</h4><p>The short summary each teammate writes alongside its work. The Captain reads only these, which is what makes an orchestrator possible.</p></div>
+<div class="term"><h4>Parallel dispatch</h4><p>One parent subagent spawning several children at once, each on a different angle, each with a clean context.</p></div>
+<div class="term"><h4>Default and Power</h4><p>The two scopes every teammate offers. Default fits a Pro plan and a session slot. Power is for Max or take-home.</p></div>
+<div class="term"><h4>Safety flag</h4><p>A note appended to a piece that failed a check. Teammates flag rather than silently fix, because a flagged piece you reject beats a takedown later.</p></div>
+<div class="term"><h4>Claim wall</h4><p>The line in your CLAUDE.md past which no teammate may write a health or performance claim. FSSAI, CDSCO or Ayush, depending on your category.</p></div>
+<div class="term"><h4>Permission mode</h4><p>Manual, Accept edits, Plan or Auto. Use Accept edits for the bootcamp, or you will spend the session clicking approve.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p class="tiny muted">D2C Insider AI Bootcamp. This page is generated from the repo, so the session list, the skill catalog and the agent list are whatever is actually on disk.</p>
+</footer>
+
+</div>
+</body>
+</html>

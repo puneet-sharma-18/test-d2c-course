@@ -6,6 +6,8 @@ By Sunday evening every one of them is running on your brand, your data and your
 
 This handbook is the map. Each session has its own file. Open one at a time. Every prompt you need is inside the session file.
 
+> **Prefer to browse?** Open [`site/index.html`](site/index.html) in your browser. Same content on one page, plus a glossary and a repo tour. [`site/sessions.html`](site/sessions.html) shows every session's prerequisites, flow and completion check side by side, which is the fastest way to see where you are.
+
 ---
 
 ## How this runs

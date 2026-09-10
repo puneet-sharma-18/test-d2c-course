@@ -6,6 +6,8 @@ By the end you have ten AI teammates operating on your brand, your data and your
 
 **Start here:** [`student-handbook.md`](student-handbook.md), then [`session-0-setup.md`](session-0-setup.md).
 
+**Lost in the repo?** Open [`site/index.html`](site/index.html) in any browser. One page: the two day arc, every session card, the roster, the skill and agent catalog, both examples, a repo tour and a glossary. [`site/sessions.html`](site/sessions.html) has the prerequisites, flow and completion check for all 13 sessions.
+
 ---
 
 ## What is different about this version
@@ -28,6 +30,7 @@ d2c-insider-ai-bootcamp/
 │   ├── skills/                      13 teammates, auto-loaded
 │   └── agents/                      4 subagents
 ├── references/                      deep dives, one folder per session
+├── site/                            browsable reference, open index.html
 └── examples/
     ├── little-lab/                  baby skincare, CDSCO, marketplace-heavy
     └── the-paan-legacy/             gourmet paan, FSSAI, quick commerce
